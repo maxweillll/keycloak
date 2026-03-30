@@ -1,0 +1,16 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/vCreatorsAppRealm
+          jwk-set-uri: spring.security.oauth2.resourceserver.jwt.issuer-uri/protocol/openid-connect/certs
+
+server:
+  port: 3000
+
+  jwt:
+    auth:
+      converter:
+        resource-id: vCreatorsAppClient
+        principle-attribute: preferred_username
